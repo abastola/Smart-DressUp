@@ -28,30 +28,28 @@ app.post('/message', function (req, res) {
             console.error(err);
         }else{
             if(body.id==1){
-                resp.message("You have been unsubscribed from Smart DressUp!");
-                console.log("Message Sent");
+                resp.message("You have been unsubscribed from SmartWeather!");
+                console.log("Stop Subscription Message Sent");
                 res.writeHead(200, {
                     'Content-Type':'text/xml'
                 });
                 res.end(resp.toString());
             }else if(body.id==2){
-                resp.message("You have been subscribed to Smart DressUp!");
-                console.log("Message Sent");
+                resp.message("You have been subscribed to SmartWeather! You will get daily alerts for "+body.zipCode+".");
+                console.log("New Subscription Message Sent");
                 res.writeHead(200, {
                     'Content-Type':'text/xml'
                 });
                 res.end(resp.toString());
             }else if(body.id==3){
                 gw.getWeather(body.zipCode, function(err, body){
-                    console.log(body);
                     if(!body){
                         resp.message("Sorry, our system is busy. Please try again in 5 mins!");
                     }else{
-                        var send_message="Weather in " +body.name+"("+body.zipCode+") is "+body.temp+" degrees with "+body.detail+".";
-                        console.log(send_message);
+                        var send_message="Weather in " +body.name+" ("+body.zipCode+") is "+body.temp+" degrees with "+body.detail+".";
                         resp.message(send_message);
                     }
-                    console.log("Message Sent");
+                    console.log("Now Message Sent");
                     res.writeHead(200, {
                         'Content-Type':'text/xml'
                     });
@@ -59,7 +57,7 @@ app.post('/message', function (req, res) {
                 });
             }else{
                 resp.message("Invalid SMS. Use START zipcode or NOW zipcode or STOP");
-                console.log("Message Sent");
+                console.log("Invalid Subscription Message Sent");
                 res.writeHead(200, {
                     'Content-Type':'text/xml'
                 });

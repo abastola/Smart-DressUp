@@ -2,7 +2,7 @@ exports.typeOfMessage = function(body, callback){
 	var return_value=[];
 
 	var messageBody=body.toLowerCase();
-	if(messageBody.length == 4 && messageBody.indexOf("stop") == 0){
+	if(messageBody.length == 5 && messageBody.indexOf("cancel") == 0){
 		return_value={
 			id: 1
 		}
