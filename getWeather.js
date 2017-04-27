@@ -1,5 +1,3 @@
-
-
 var request = require('request');
 
 exports.getWeather = function(body, callback){
@@ -7,7 +5,6 @@ exports.getWeather = function(body, callback){
 		url: 'http://api.openweathermap.org/data/2.5/weather?zip='+body+',us&appid=969aa06eec143110698cd9b4ef5abd1a',
 		json: true
 	};
-	
 	request.get(options, function(err, response, body_json) {
 		if( !err && response.statusCode === 200 ){
 			var x=body_json['weather'][0]['id'];
@@ -23,9 +20,6 @@ exports.getWeather = function(body, callback){
 			}
 			return callback(null, return_value);
 		}
-		else{
-			return callback(err);
-		}
+		else{return callback(err);}
 	});
-
 }

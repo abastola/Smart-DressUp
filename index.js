@@ -64,15 +64,10 @@ app.post('/message', function (req, res) {
                 res.end(resp.toString());
             }
         }
-    });
-    
+    });  
 });
-
-
 
 //server details
 var server = app.listen(1622, function() {
   console.log('Listening on port %d', server.address().port);
 });
-
-//---------------------------------------------------------

@@ -1,6 +1,5 @@
 exports.typeOfMessage = function(body, callback){
 	var return_value=[];
-
 	var messageBody=body.toLowerCase();
 	if(messageBody.length == 5 && messageBody.indexOf("cancel") == 0){
 		return_value={
