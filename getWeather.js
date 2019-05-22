@@ -2,7 +2,7 @@ var request = require('request');
 
 exports.getWeather = function(body, callback){
 	options ={
-		url: 'http://api.openweathermap.org/data/2.5/weather?zip='+body+',us&appid=969aa06eec143110698cd9b4ef5abd1a',
+		url: 'blah blah blah',
 		json: true
 	};
 	request.get(options, function(err, response, body_json) {
